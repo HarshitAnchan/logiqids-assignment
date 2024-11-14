@@ -1,38 +1,38 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
+import React from "react";
+import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
-import { createTheme, ThemeProvider, useMediaQuery } from "@mui/material";
-import CssBaseline from "@mui/material/CssBaseline";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import categories from "../data/category";
 
-export default function SwipeableTemporaryDrawer() {
-  const [state, setState] = React.useState({
-    left: false,
-  });
+// Styles using MUI's `sx` prop
+const drawerListStyles = {
+  width: 200,
+  paddingLeft: 10,
+  paddingRight: 5,
+};
 
-  // Detect user's color scheme preference
-  const preferDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+const SwipeableTemporaryDrawer = ({ setCategory }) => {
+  const [state, setState] = React.useState({ left: false });
 
-  // Memoize the theme based on the user's preference
+  // Dark mode theme configuration
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const theme = React.useMemo(
     () =>
       createTheme({
         palette: {
-          mode: preferDarkMode ? "dark" : "light",
+          mode: prefersDarkMode ? "dark" : "light",
         },
       }),
-    [preferDarkMode]
+    [prefersDarkMode]
   );
 
+  // Toggle drawer open/close
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event &&
@@ -41,63 +41,53 @@ export default function SwipeableTemporaryDrawer() {
     ) {
       return;
     }
-
     setState({ ...state, [anchor]: open });
   };
 
+  // Drawer content
   const list = (anchor) => (
-    <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
+    <div
+      style={drawerListStyles}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        <ListItem>
+          <ListItemText primary="Categories" />
+        </ListItem>
       </List>
       <Divider />
       <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
+        {categories.map((text) => (
+          <ListItem
+            button
+            key={text}
+            onClick={() => setCategory(text)}
+            sx={{ height: 40, borderRadius: 2 }}
+          >
+            <ListItemText primary={text} />
           </ListItem>
         ))}
       </List>
-    </Box>
+    </div>
   );
 
   return (
-    <div>
-      <React.Fragment key={"left"}>
-        <Button onClick={toggleDrawer("left", true)}>
-          <MenuIcon />
-        </Button>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <SwipeableDrawer
-            anchor={"left"}
-            open={state["left"]}
-            onClose={toggleDrawer("left", false)}
-            onOpen={toggleDrawer("left", true)}
-          >
-            {list("left")}
-          </SwipeableDrawer>
-        </ThemeProvider>
-      </React.Fragment>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Button onClick={toggleDrawer("left", true)} sx={{ minWidth: 0 }}>
+        <MenuIcon />
+      </Button>
+      <SwipeableDrawer
+        anchor="left"
+        open={state.left}
+        onClose={toggleDrawer("left", false)}
+        onOpen={toggleDrawer("left", true)}
+      >
+        {list("left")}
+      </SwipeableDrawer>
+    </ThemeProvider>
   );
-}
+};
+
+export default SwipeableTemporaryDrawer;

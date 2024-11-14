@@ -1,12 +1,14 @@
 import React from "react";
 import "./Navbar.css";
-import SwipeableTemporaryDrawer from "./HamburgerDrawer";
-const Navbar = () => {
+import HamburgerDrawer from "./HamburgerDrawer";
+
+const NavInshort = ({ setCategory }) => {
   return (
     <div className="nav">
-      <div className="icon">
-        <SwipeableTemporaryDrawer />
+      <div className="menu">
+        <HamburgerDrawer setCategory={setCategory} />
       </div>
+
       <img
         style={{ cursor: "pointer" }}
         src="https://assets.inshorts.com/website_assets/images/logo_inshorts.png"
@@ -17,4 +19,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavInshort;
