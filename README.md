@@ -1,5 +1,5 @@
 
-`# Inshorts Clone Using React JS
+## Inshorts Clone Using React JS
 
 This is an Inshorts Clone web application built with React JS that fetches news from the [News API](https://newsapi.org/). The app displays a list of news articles with brief descriptions similar to the Inshorts app.
 
