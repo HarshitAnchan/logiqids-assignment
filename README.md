@@ -50,13 +50,7 @@ This is an Inshorts Clone web application built with React JS that fetches news 
     
     -   Sign up at [News API](https://newsapi.org/) to get a free API key.
         
-    -   Create a `.env` file in the root directory and add your API key:
-        
-        bash
-        
-        Copy code
-        
-        `REACT_APP_NEWS_API_KEY=your_api_key_here` 
+
         
 5.  **Run the development server**
     
