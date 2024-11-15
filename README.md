@@ -1,70 +1,71 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+`# Inshorts Clone Using React JS
 
-## Available Scripts
+This is an Inshorts Clone web application built with React JS that fetches news from the [News API](https://newsapi.org/). The app displays a list of news articles with brief descriptions similar to the Inshorts app.
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- Fetches and displays the latest news articles.
+- Clean and responsive UI with React.
+- Pagination support to browse through news articles.
+- Built using modern React practices (hooks, functional components).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Frontend**: React JS, HTML5, CSS3
+- **API**: [News API](https://newsapi.org/)
+- **Styling**: Tailwind CSS (or regular CSS/SCSS based on your setup)
 
-### `npm test`
+## 📦 Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone this repository**
 
-### `npm run build`
+   ```bash
+   git clone https://github.com/HarshitAnchan/logiqids-assignment.git` 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+2.  **Navigate to the project directory**
+    
+    bash
+    
+    Copy code
+    
+    `cd logiqids-assignment` 
+    
+3.  **Install the dependencies**
+    
+    bash
+    
+    Copy code
+    
+    `npm install` 
+    
+4.  **Get your API key from [News API](https://newsapi.org/)**
+    
+    -   Sign up at [News API](https://newsapi.org/) to get a free API key.
+        
+    -   Create a `.env` file in the root directory and add your API key:
+        
+        bash
+        
+        Copy code
+        
+        `REACT_APP_NEWS_API_KEY=your_api_key_here` 
+        
+5.  **Run the development server**
+    
+    bash
+    
+    Copy code
+    
+    `npm start` 
+    
+    -   Open http://localhost:3000 to view it in your browser.
+6.  **Build the app for production**
+    
+    bash
+    
+    Copy code
+    
+    `npm run build` 
+    
+    -   The production build will be created in the `build` folder.
